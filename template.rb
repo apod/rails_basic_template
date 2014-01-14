@@ -32,6 +32,17 @@ module Minitest::Expectations
 end
 END
 
+# Use spec format for minitest and don't generate assets and helpers
+environment <<-END
+# Use spec format for minitest and don't generate assets and helpers
+    config.generators do |g|
+      g.test_framework :mini_test, spec: true, fixture: false
+      g.assets         false
+      g.helper         false
+    end
+END
+
+
 # Ignore application specific files
 run "cp config/database.yml config/database.example.yml"
 run "cp config/application.yml config/application.example.yml"
