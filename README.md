@@ -3,12 +3,11 @@
 A Rails 4 basic template.
 
 ## Process
-1. Install the following gems:
-  - [figaro](https://github.com/laserlemon/figaro): Application configuration
-
-2. Ignore application files (database.yml and application.yml)
-3. Create example files (database.example.yml and application.example.yml)
-
+1. Application configuration with [figaro](https://github.com/laserlemon/figaro)
+2. Add database.yml and application.yml to .gitignore
+3. Create database.example.yml and application.example.yml based on the default files
+4. Configure [minitest-rails](https://github.com/blowmage/minitest-rails)
+5. Use [turn](https://github.com/turn-project/turn)'s dot format for test results
 
 ## Usage
 ```sh

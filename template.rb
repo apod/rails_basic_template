@@ -1,9 +1,35 @@
 # Gems
 gem 'figaro'
 
+gem_group :development, :test do
+  gem 'minitest-rails'
+end
+
+gem_group :test do
+  gem 'turn'
+end
+
 # Setup figaro
 file 'config/application.yml', <<-END
 HOST: 'localhost:3000'
+END
+
+# Setup minitest-rails and turn
+file 'test/test_helper.rb', <<-END
+ENV['RAILS_ENV'] = 'test'
+require File.expand_path('../../config/environment', __FILE__)
+require 'rails/test_help'
+
+require 'minitest/rails'
+
+Turn.config.format = :dot
+
+class ActiveSupport::TestCase
+  fixtures :all
+end
+
+module Minitest::Expectations
+end
 END
 
 # Ignore application specific files
