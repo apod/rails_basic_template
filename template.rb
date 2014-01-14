@@ -59,7 +59,7 @@ environment <<-END
     end
 END
 
-# Create application.html.slim
+# Slim
 remove_file 'app/views/layouts/application.html.erb'
 file 'app/views/layouts/application.html.slim', <<-END
 doctype html
@@ -75,3 +75,8 @@ html
   body
     = yield
 END
+
+# Pretty HTML indenting on development
+environment '# Pretty HTML indenting on development
+  Slim::Engine.set_default_options pretty: true
+', env: 'development'
