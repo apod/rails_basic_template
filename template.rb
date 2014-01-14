@@ -2,6 +2,7 @@
 gem 'figaro'
 
 gem_group :development do
+  gem 'thin'
   gem 'quiet_assets'
 end
 
