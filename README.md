@@ -9,9 +9,10 @@ A Rails 4 basic template.
 4. Configure [minitest-rails](https://github.com/blowmage/minitest-rails)
 5. Use [turn](https://github.com/turn-project/turn)'s dot format for test results
 6. Generators configuration: use spec format for minitest and don't generate assets and helpers
-7. Add development goodies
+7. Development goodies
   - Use [thin](https://github.com/macournoyer/thin/) as server
   - Mute asset logging with [quiet_assets](https://github.com/evrone/quiet_assets)
+  - [Better Errors](https://github.com/charliesome/better_errors)
 
 ## Usage
 ```sh
