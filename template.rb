@@ -2,6 +2,7 @@
 gem 'figaro'
 
 gem_group :development do
+  gem 'pry-rails'
   gem 'thin'
   gem 'quiet_assets'
   gem 'better_errors'
