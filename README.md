@@ -12,5 +12,5 @@ A Rails 4 basic template.
 
 ## Usage
 ```sh
-rails new APP_PATH -m https://raw.github.com/apod/rails_basic_template/master/template.rb
+rails new my_app -d postgresql -T -m https://raw.github.com/apod/rails_basic_template/master/template.rb
 ```
