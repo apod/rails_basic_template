@@ -9,7 +9,9 @@ A Rails 4 basic template.
 4. Configure [minitest-rails](https://github.com/blowmage/minitest-rails)
 5. Use [turn](https://github.com/turn-project/turn)'s dot format for test results
 6. Generators configuration: use spec format for minitest and don't generate assets and helpers
-7. Development goodies
+7. Slim as the default template engine
+  - Remove application.html.erb and create application.html.slim
+8. Development goodies
   - [Pry](http://pryrepl.org/) as console and debugger (using [pry-rails](https://github.com/rweng/pry-rails))
   - [Thin](https://github.com/macournoyer/thin/) as development server
   - Mute asset logging with [quiet_assets](https://github.com/evrone/quiet_assets)

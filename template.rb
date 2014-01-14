@@ -1,5 +1,6 @@
 # Gems
 gem 'figaro'
+gem 'slim-rails'
 
 gem_group :development do
   gem 'pry-rails'
@@ -21,6 +22,14 @@ end
 file 'config/application.yml', <<-END
 HOST: 'localhost:3000'
 END
+
+# Ignore application specific files
+run 'cp config/database.yml config/database.example.yml'
+run 'cp config/application.yml config/application.example.yml'
+run "echo '
+# Ignore application specific files.
+config/database.yml
+config/application.yml' >> .gitignore"
 
 # Setup minitest-rails and turn
 file 'test/test_helper.rb', <<-END
@@ -50,11 +59,19 @@ environment <<-END
     end
 END
 
+# Create application.html.slim
+remove_file 'app/views/layouts/application.html.erb'
+file 'app/views/layouts/application.html.slim', <<-END
+doctype html
+html
+  head
+    title #{app_const_base}
+    meta charset = 'utf-8'
 
-# Ignore application specific files
-run "cp config/database.yml config/database.example.yml"
-run "cp config/application.yml config/application.example.yml"
-run "echo '
-# Ignore application specific files.
-config/database.yml
-config/application.yml' >> .gitignore"
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application',               'data-turbolinks-track' => true
+
+    = csrf_meta_tags
+  body
+    = yield
+END
